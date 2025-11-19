@@ -1,0 +1,131 @@
+/* 全局样式 */
+body {
+    background-color: #f8f9fa;  /* 浅灰色背景 */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  /* 现代字体栈 */
+}
+
+/* 卡片样式 */
+.card {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);  /* 轻微阴影 */
+    border: 1px solid rgba(0, 0, 0, 0.125);  /* 边框 */
+}
+
+.card-header {
+    background-color: rgba(0, 0, 0, 0.03);  /* 浅灰色背景 */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);  /* 底部边框 */
+}
+
+/* 任务项样式 */
+.todo-item {
+    transition: all 0.3s ease;  /* 过渡动画 */
+    border: none;  /* 无边框 */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);  /* 底部边框 */
+}
+
+/* 最后一个任务项无底部边框 */
+.todo-item:last-child {
+    border-bottom: none;
+}
+
+/* 鼠标悬停效果 */
+.todo-item:hover {
+    background-color: rgba(0, 0, 0, 0.02);  /* 浅灰色背景 */
+}
+
+/* 已完成任务样式 */
+.todo-item.completed {
+    background-color: #f8f9fa;  /* 更浅的背景色 */
+}
+
+/* 已完成任务的标题样式 */
+.todo-item.completed .todo-title {
+    text-decoration: line-through;  /* 删除线 */
+    color: #6c757d;  /* 灰色文字 */
+}
+
+/* 已完成任务的描述样式 */
+.todo-item.completed .todo-description {
+    color: #6c757d;  /* 灰色文字 */
+}
+
+/* 操作按钮样式（默认隐藏，悬停时显示） */
+.todo-actions {
+    opacity: 0;  /* 默认透明 */
+    transition: opacity 0.3s ease;  /* 透明度过渡 */
+}
+
+/* 鼠标悬停时显示操作按钮 */
+.todo-item:hover .todo-actions {
+    opacity: 1;  /* 完全不透明 */
+}
+
+/* 筛选按钮激活状态 */
+.btn-group .btn.active {
+    background-color: #0d6efd;  /* 主色调蓝色 */
+    border-color: #0d6efd;
+    color: white;  /* 白色文字 */
+}
+
+/* 响应式设计 - 移动端适配 */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;  /* 减少左右内边距 */
+    }
+
+    /* 移动端始终显示操作按钮 */
+    .todo-actions {
+        opacity: 1;
+    }
+
+    /* 移动端按钮组全宽显示 */
+    .btn-group {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .btn-group .btn {
+        flex: 1;  /* 等分宽度 */
+    }
+}
+
+/* 任务项淡入动画 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);  /* 从下方10px位置开始 */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);  /* 移动到正常位置 */
+    }
+}
+
+/* 应用动画到任务项 */
+.todo-item {
+    animation: fadeIn 0.3s ease;  /* 0.3秒淡入动画 */
+}
+
+/* 自定义滚动条样式 */
+.list-group {
+    max-height: 60vh;  /* 最大高度为视口的60% */
+    overflow-y: auto;  /* 垂直滚动 */
+}
+
+/* Webkit浏览器滚动条样式 */
+.list-group::-webkit-scrollbar {
+    width: 6px;  /* 滚动条宽度 */
+}
+
+.list-group::-webkit-scrollbar-track {
+    background: #f1f1f1;  /* 轨道背景色 */
+    border-radius: 3px;   /* 圆角 */
+}
+
+.list-group::-webkit-scrollbar-thumb {
+    background: #c1c1c1;  /* 滑块颜色 */
+    border-radius: 3px;   /* 圆角 */
+}
+
+.list-group::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;  /* 鼠标悬停时的滑块颜色 */
+}
